@@ -1,0 +1,105 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap");
+body {
+  margin: 0;
+  padding: 0;
+  line-height: normal;
+  box-sizing: border-box;
+}
+
+:root {
+  /* fonts */
+  --title-semibold-14px: Inter;
+
+  /* font sizes */
+  --body-regular-12-size: 12px;
+  --title-semibold-14px-size: 14px;
+  --title-regular-20-size: 20px;
+  --header-semibold-24px-size: 24px;
+
+  /* Colors */
+  --workspaces-repio-repio-primary: #1952e1;
+  --main-colors-main-white: #fff;
+  --main-colors-main-main: #1a1a1a;
+  --main-colors-main-universal-main-lighten-3: #9a9da4;
+  --main-colors-main-universal-main-lighten-1: #33373c;
+  --main-colors-main-lightbg: #f3f4f9;
+  --main-colors-main-universal-darkerbg: #e2e4ea;
+  --workspaces-repio-repio-primary-active: #2e3e6e;
+  --main-colors-main-universal-main-lighten-2: #63666e;
+  --workspaces-repio-repio-primary-hover: #1649ca;
+
+  /* Gaps */
+  --gap-lg: 18px;
+  --gap-4xl: 23px;
+  --gap-5xl: 24px;
+  --gap-base: 16px;
+  --gap-5xs: 8px;
+
+  /* Paddings */
+  --padding-5xs: 8px;
+  --padding-5xl: 24px;
+  --padding-xl: 20px;
+  --padding-9xs: 4px;
+  --padding-lgi: 19px;
+  --padding-7xs-5: 5.5px;
+  --padding-base: 16px;
+
+  /* Border radiuses */
+  --br-9xs: 4px;
+
+}
+
+/* :root {
+  --maincolorsmainlightbg: rgba(243, 244, 249, 1);
+  --maincolorsmainmain: rgba(26, 26, 26, 1);
+  --maincolorsmainuniversalmainlighten-1: rgba(51, 55, 60, 1);
+  --maincolorsmainuniversalmainlighten-3: rgba(154, 157, 164, 1);
+  --maincolorsmainwhite: rgba(255, 255, 255, 1);
+  --workspacesrepiorepioprimary: rgba(25, 82, 225, 1);
+  --maincolorsmainuniversaldarkerbg: rgba(226, 228, 234, 1);
+  --workspacesrepiorepioprimaryactive: rgba(46, 62, 110, 1);
+  --workspacesrepiorepioprimaryhover: rgba(22, 73, 202, 1);
+  --maincolorsmainuniversalmainlighten-2: rgba(99, 102, 110, 1);
+  --header-semibold-24px-font-family: "Inter-SemiBold", Helvetica;
+  --header-semibold-24px-font-weight: 600;
+  --header-semibold-24px-font-size: 24px;
+  --header-semibold-24px-letter-spacing: 0px;
+  --header-semibold-24px-line-height: 32px;
+  --header-semibold-24px-font-style: normal;
+  --title-medium-14px-font-family: "Inter-Medium", Helvetica;
+  --title-medium-14px-font-weight: 500;
+  --title-medium-14px-font-size: 14px;
+  --title-medium-14px-letter-spacing: 0px;
+  --title-medium-14px-line-height: 24px;
+  --title-medium-14px-font-style: normal;
+  --title-regular-20px-font-family: "Inter-Regular", Helvetica;
+  --title-regular-20px-font-weight: 400;
+  --title-regular-20px-font-size: 20px;
+  --title-regular-20px-letter-spacing: 0px;
+  --title-regular-20px-line-height: 24px;
+  --title-regular-20px-font-style: normal;
+  --title-semibold-14px-font-family: "Inter-SemiBold", Helvetica;
+  --title-semibold-14px-font-weight: 600;
+  --title-semibold-14px-font-size: 14px;
+  --title-semibold-14px-letter-spacing: 0px;
+  --title-semibold-14px-line-height: 24px;
+  --title-semibold-14px-font-style: normal;
+  --body-medium-12px-font-family: "Inter-Medium", Helvetica;
+  --body-medium-12px-font-weight: 500;
+  --body-medium-12px-font-size: 12px;
+  --body-medium-12px-letter-spacing: 0px;
+  --body-medium-12px-line-height: 16px;
+  --body-medium-12px-font-style: normal;
+  --label-as-typed-semibold-12px-font-family: "Inter-SemiBold", Helvetica;
+  --label-as-typed-semibold-12px-font-weight: 600;
+  --label-as-typed-semibold-12px-font-size: 12px;
+  --label-as-typed-semibold-12px-letter-spacing: 0.012000000178813934px;
+  --label-as-typed-semibold-12px-line-height: 16px;
+  --label-as-typed-semibold-12px-font-style: normal;
+  --body-regular-12px-font-family: "Inter-Regular", Helvetica;
+  --body-regular-12px-font-weight: 400;
+  --body-regular-12px-font-size: 12px;
+  --body-regular-12px-letter-spacing: 0px;
+  --body-regular-12px-line-height: 16px;
+  --body-regular-12px-font-style: normal;
+} */

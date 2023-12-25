@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap');
+
+$dark: #E2E4EA;
+$light: #F3F4F9;
+
+$primary: #1952E1;
+$secondary: #2E3E6E;
+
+$font-family-sans-serif: 'Inter', sans-serif;
+
+@import '~bootstrap/scss/_functions';
+@import '~bootstrap/scss/_variables';
+
+//   $maincolorsmainlightbg: #f3f4f9; light
+$custom-theme-colors: (
+    "altlight": #63666e,
+    "main-light": #33373C,
+    "main-alt-light": #9A9DA4,
+    "main": #1A1A1A,
+
+);
+
+$theme-colors: map-merge($custom-theme-colors, $theme-colors);
+
+@import '~bootstrap/scss/bootstrap';
