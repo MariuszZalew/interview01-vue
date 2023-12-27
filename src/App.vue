@@ -9,9 +9,7 @@ import DesktopMainView from './views/DesktopMainView.vue'
 export default {
     components: {
         DesktopMainView
-
     }
-
 }
 </script>
 

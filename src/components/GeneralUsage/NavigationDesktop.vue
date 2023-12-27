@@ -23,15 +23,10 @@
 </template>
 
 <script>
-export default {
-
-}
 </script>
 
 <style lang="scss" scoped>
 .nav-link.active {
-    // border-bottom: 3px solid #007bff;
     border-bottom: 3px solid var(--bs-primary);
-    /* Add a border to the bottom */
 }
 </style>
