@@ -14,7 +14,7 @@
                             </li>
                             <li :class="[activeItem === 'stops' ? 'active fw-semibold' : '']" class="nav-item"
                                 @click="setActive('stops')">
-                                <router-link to="/Stops" class="nav-link  p-3">Stops</router-link>
+                                <router-link to="/Stops" class="nav-link  p-3">Stops </router-link>
                             </li>
                         </ul>
                     </div>
