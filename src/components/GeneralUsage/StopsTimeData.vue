@@ -1,7 +1,7 @@
 <template>
     <div class="col-12 col-lg rounded-1 mt-2">
         <p class="text-main fw-semibold">Bus Stop: {{ lineUsed }}</p>
-        <ul class="list-group">
+        <ul class="list-group fh-box">
             <li class="list-group-item" v-for="i in convertingSortByOrder" :key="i" @click="handleClick(i)">{{ i.time }}
             </li>
         </ul>
@@ -28,4 +28,9 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.fh-box {
+    height: 420px;
+    overflow-y: auto;
+}
+</style>

@@ -3,7 +3,7 @@
         <p class="text-main fw-semibold">
             Bus line: {{ getLine }}
         </p>
-        <ul class="list-group">
+        <ul class="list-group fh-box">
             <li class="list-group-item" v-for="i in convertingSortByOrder" :key="i" @click="handleClick(i)">{{ i[0].stop }}
             </li>
         </ul>
@@ -37,4 +37,9 @@ export default {
     }
 }
 </script>
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.fh-box {
+    height: 420px;
+    overflow-y: auto;
+}
+</style>
