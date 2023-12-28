@@ -6,7 +6,7 @@
                 <div class="container-fluid">
                     <form class="d-flex" role="search">
                         <input class="form-control me-2 with-magnifying-glass" type="search" placeholder="Search"
-                            aria-label="Search" v-model="searchData" @click.stop>
+                            aria-label="Search" v-model="searchData" @keydown.enter.prevent>
                     </form>
                 </div>
             </nav>
