@@ -23,6 +23,7 @@ type RootState = {
   byOrderData: orderAcc<number>
   byTimeData: baseObj[]
   selectedLine?: myLine
+  stopsData: string[]
 }
 export default createStore<RootState>({
   state: {
@@ -30,6 +31,7 @@ export default createStore<RootState>({
     linesData:{},
     byOrderData: {},
     byTimeData: [],
+    stopsData: []
   },
   mutations: {
     setRawData(state, rawData) {
@@ -49,6 +51,9 @@ export default createStore<RootState>({
     },
     setSelectedLine(state, line) {
       state.selectedLine = line
+    },
+    setStopsData(state, stops) {
+      state.stopsData = stops
     }
   },
   actions: {
@@ -64,6 +69,16 @@ export default createStore<RootState>({
 
     clearTimeData({commit}) {
       commit('clearTimeData')
+    },
+
+    async convertToArrStops({ state, commit }) {
+      const stopsData = await state.rawData.reduce((acc:string[], curr: baseObj) => {
+
+           acc.push(curr.stop);
+          return Array.from(new Set(acc));
+        }, []
+      )
+      commit('setStopsData', stopsData)
     },
     async convertToObjLines({ state, commit }) {
       const linesData = await state.rawData.reduce((acc:lineAcc, curr: baseObj) => {
@@ -109,6 +124,7 @@ export default createStore<RootState>({
     getLinesData: (state) => state.linesData,
     getByOrderData: (state) => state.byOrderData,
     getByTimeData: (state) => state.byTimeData,
-    getSelectedLine: (state) => state.selectedLine
+    getSelectedLine: (state) => state.selectedLine,
+    getStopsData: (state) => state.stopsData
   },
 });
