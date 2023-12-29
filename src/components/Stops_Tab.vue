@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="container custom-one py-3 mt-3 bg-white rounded-1 ">
+        <div class="container custom-one  mt-3 bg-white rounded-1 px-0">
 
             <nav class="navbar bg-body-tertiary">
                 <div class="container-fluid">
@@ -11,8 +11,12 @@
                 </div>
             </nav>
 
-            <ul class="list-group fixed-height-box p-2">
-                <li class="list-group-item" v-for="i in getStopsDataComp" :key="i"> {{ i }}</li>
+            <p class="fw-normal text-start px-4 fs-6 py-4 gray-border">Bus Stops <img src="@/assets/icon/scroll.svg"
+                    alt="scrol" class="rotate-90">
+            </p>
+
+            <ul class="list-group fixed-height-box list-group-flush">
+                <li class="list-group-item py-3 px-4 fw-light" v-for="i in getStopsDataComp" :key="i"> {{ i }}</li>
             </ul>
 
         </div>
@@ -46,4 +50,17 @@ export default {
     height: 420px;
     overflow-y: auto;
 }
+
+.rotate-90 {
+    transform: rotate(90deg);
+}
+
+.gray-border {
+    border-bottom: 1px solid #ccc;
+}
+
+// .list-group-item:hover {
+//     cursor: pointer;
+//     background-color: var(--bs-light);
+// }
 </style>
