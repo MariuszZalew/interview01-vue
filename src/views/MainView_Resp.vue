@@ -1,7 +1,7 @@
 <template>
     <div>
         <App_Wrapper>
-            <Navigation_Resp />
+            <App_Navigation />
             <router-view></router-view>
         </App_Wrapper>
     </div>
@@ -9,11 +9,11 @@
 
 <script>
 import App_Wrapper from '@/components/App_Wrapper.vue'
-import Navigation_Resp from '@/components/Navigation_Resp.vue'
+import App_Navigation from '@/components/App_Navigation.vue'
 export default {
     components: {
         App_Wrapper,
-        Navigation_Resp
+        App_Navigation
     }
 }
 </script>

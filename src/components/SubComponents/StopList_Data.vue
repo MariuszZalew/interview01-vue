@@ -4,13 +4,12 @@
             Bus line: {{ getLine }}
         </h6>
 
-        <p class="fw-normal text-start px-4 fs-6 pt-4">Bus Stops <img src="@/assets/icon/scroll.svg" alt="scrol"
-                class="rotate-90">
-        </p>
+        <ListDescComp :propSwitch="true" descVal="Bus Stops" />
 
         <ul class="list-group list-group-flush text-start fh-box">
-            <li :class="[activeItem === i[0].stop ? 'text-primary' : '']" class="list-group-item fw-light py-3 px-4"
-                v-for="i in convertingSortByOrder" :key="i[0].stop" @click="handleClick(i)">{{
+            <li :class="[(activeItem === i[0].stop && activeItemIndex === i[0].order) ? 'text-primary' : '']"
+                class="list-group-item fw-light py-3 px-4" v-for="i in convertingSortByOrder" :key="i[0].stop"
+                @click="handleClick(i)">{{
                     i[0].stop }}
             </li>
         </ul>
@@ -18,6 +17,7 @@
 </template>
 
 <script>
+import ListDescComp from '../PartialComponents/ListDescComp.vue';
 function sortObjectsByTime(objects) {
     const compareByTime = (a, b) => {
         const timeA = parseFloat(a.time.replace(':', '.'));
@@ -27,9 +27,13 @@ function sortObjectsByTime(objects) {
     return objects.slice().sort(compareByTime);
 }
 export default {
+    components: {
+        ListDescComp
+    },
     data() {
         return {
             activeItem: '',
+            activeItemIndex: null
         };
     },
     computed: {
@@ -43,6 +47,7 @@ export default {
     methods: {
         handleClick(val) {
             this.activeItem = val[0].stop
+            this.activeItemIndex = val[0].order
             this.key = val[0].line
             let sol = sortObjectsByTime(val)
             this.$store.dispatch('sortByTime', sol);
@@ -63,5 +68,9 @@ export default {
 .list-group-item:hover {
     cursor: pointer;
     background-color: var(--bs-light);
+}
+
+.gray-border {
+    border-bottom: 1px solid #ccc;
 }
 </style>

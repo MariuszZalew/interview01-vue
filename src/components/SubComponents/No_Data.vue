@@ -1,6 +1,6 @@
 <template>
-    <div class="col-12 col-lg bg-white rounded-1 custom-border">
-        <p class="custom_height text-altlight">
+    <div class="col-12 col-lg bg-white rounded-1 custom-border d-flex justify-content-center align-items-center h-min">
+        <p class="text-altlight">
             Please Select the bus line first
         </p>
     </div>
@@ -11,9 +11,8 @@ export default {}
 </script>
 
 <style lang="scss" scoped>
-.custom_height {
-    padding: 200px 0;
-    // height: 200px;
+.h-min {
+    min-height: 460px;
 }
 
 .custom-border {

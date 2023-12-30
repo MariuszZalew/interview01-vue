@@ -1,31 +1,26 @@
 import { createStore } from 'vuex';
 import axios from 'axios';
-type baseObj = {
-  line: myLine
-  stop: string
-  order: number
-  time: string
-}
-type myLine = "100" | "101" | "102" | "103" | "104" | "105" | "106" | "107" | "108" | "109" | "110" | "111" | "112" 
+import type { baseObj, myLine, lineAcc, orderAcc, rootState } from '../types/type'
 
+// enum MutationTypes {
+//   INC_ME = "INC_MEEEE",
+//   INC_MEA = "INC_MEEEEEEEE",
+//   SET_RAW_DATA = "setRawData"
+// }
 
-type lineAcc = {
-  [K in myLine]?: baseObj | [];
-};
+// type MutationOne<S = state> = {
+//   [MutationTypes.SET_RAW_DATA](state: S, payload: baseObj[]): void
+// }
 
-type orderAcc<T extends number> = {
-  [key in T]?: baseObj | []
-};
+// type state = {
+//   rawData: baseObj[]
+//   linesData: lineAcc
+//   byOrderData: orderAcc<number>
+//   byTimeData: baseObj[]
+//   stopsData: string[]
+// }
 
-type RootState = {
-  rawData: baseObj[]
-  linesData: lineAcc
-  byOrderData: orderAcc<number>
-  byTimeData: baseObj[]
-  selectedLine?: myLine
-  stopsData: string[]
-}
-export default createStore<RootState>({
+export default createStore<rootState>({
   state: {
     rawData: [],
     linesData:{},
