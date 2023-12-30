@@ -2,23 +2,35 @@ import { createStore } from 'vuex';
 import axios from 'axios';
 import type { baseObj, myLine, lineAcc, orderAcc, rootState } from '../types/type'
 
-// enum MutationTypes {
-//   INC_ME = "INC_MEEEE",
-//   INC_MEA = "INC_MEEEEEEEE",
-//   SET_RAW_DATA = "setRawData"
+// export enum MutationTypes {
+//   SET_RAW_DATA = "SET_RAW_DATA",
+//   SET_LINES_DATA = "SET_LINES_DATA",
+//   SET_SORT_BY_ORDER = "SET_SORT_BY_ORDER",
+//   SET_SORT_BY_TIME = "SET_SORT_BY_TIME",
+//   CLEAR_TIME_DATA = "CLEAR_TIME_DATA",
+//   SET_SELECTED_LINE = "SET_SELECTED_LINE",
+//   SET_STOPS_DATA = "SET_STOPS_DATA"
 // }
 
-// type MutationOne<S = state> = {
-//   [MutationTypes.SET_RAW_DATA](state: S, payload: baseObj[]): void
+export enum ActionTypes {
+  FETCH_RAW_DATA = "FETCH_RAW_DATA",
+  CLEAR_TIME_DATA = "CLEAR_TIME_DATA",
+  CONVERT_TO_ARR_STOPS = "CONVERT_TO_ARR_STOPS",
+  CONVERT_TO_OBJ_LINES = "CONVERT_TO_OBJ_LINES",
+  CONVERT_TO_SORT_BY_ORDER = "CONVERT_TO_SORT_BY_ORDER",
+  SORT_BY_TIME = "SORT_BY_TIME",
+  SET_SELECTED_LINE = "SET_SELECTED_LINE"
+}
+
+// export enum GetterTypes {
+//   GET_RAW_DATA = "GET_RAW_DATA",
+//   GET_LINES_DATA = "getLinesData",
+//   GET_BY_ORDER_DATA = "getByOrderData",
+//   GET_BY_TIME_DATA = "getByTimeData",
+//   GET_SELECTED_LINE = "getSelectedLine",
+//   GET_STOPS_DATA = "getStopsData"
 // }
 
-// type state = {
-//   rawData: baseObj[]
-//   linesData: lineAcc
-//   byOrderData: orderAcc<number>
-//   byTimeData: baseObj[]
-//   stopsData: string[]
-// }
 
 export default createStore<rootState>({
   state: {
@@ -29,30 +41,31 @@ export default createStore<rootState>({
     stopsData: []
   },
   mutations: {
-    setRawData(state, rawData) {
-      state.rawData = rawData;
+    setRawData(state, payload) {
+      state.rawData = payload;
     },
-    setLinesData(state, linesData) {
-      state.linesData = linesData
+    setLinesData(state, payload) {
+      state.linesData = payload
     },
-    setSortByOrder(state, byOrderData) {
-      state.byOrderData = byOrderData
+    setSortByOrder(state, payload) {
+      state.byOrderData = payload
     },
-    setSortByTime(state, byTimeData) {
-      state.byTimeData = byTimeData
+    setSortByTime(state, payload) {
+      state.byTimeData = payload
     },
-    clearTimeData(state, clearObj) {
-      state.byTimeData = clearObj
+    clearTimeData(state, payload) {
+      state.byTimeData = payload
     },
-    setSelectedLine(state, line) {
-      state.selectedLine = line
+    setSelectedLine(state, payload) {
+      state.selectedLine = payload
     },
-    setStopsData(state, stops) {
-      state.stopsData = stops
+    setStopsData(state, payload) {
+      state.stopsData = payload
     }
   },
   actions: {
-    async fetchRawData({ commit }) {
+    // async fetchRawData({ commit }) {
+    async [ActionTypes.FETCH_RAW_DATA]({ commit }) {
       try {
         const response = await axios.get('http://localhost:3000/stops');
         
@@ -66,8 +79,8 @@ export default createStore<rootState>({
       commit('clearTimeData')
     },
 
-    async convertToArrStops({ state, commit }) {
-      const stopsData = await state.rawData.reduce((acc:string[], curr: baseObj) => {
+    convertToArrStops({ state, commit }) {
+      const stopsData = state.rawData.reduce((acc:string[], curr: baseObj) => {
 
            acc.push(curr.stop);
           return Array.from(new Set(acc));
@@ -75,8 +88,8 @@ export default createStore<rootState>({
       )
       commit('setStopsData', stopsData)
     },
-    async convertToObjLines({ state, commit }) {
-      const linesData = await state.rawData.reduce((acc:lineAcc, curr: baseObj) => {
+     convertToObjLines({ state, commit }) {
+      const linesData = state.rawData.reduce((acc:lineAcc, curr: baseObj) => {
           const nameValue: myLine = curr.line;
 
           if (!acc[nameValue]) {

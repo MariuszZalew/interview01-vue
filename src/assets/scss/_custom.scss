@@ -17,7 +17,6 @@ $custom-theme-colors: (
     "main-light": #33373C,
     "main-alt-light": #9A9DA4,
     "main": #1A1A1A,
-
 );
 
 $theme-colors: map-merge($custom-theme-colors, $theme-colors);

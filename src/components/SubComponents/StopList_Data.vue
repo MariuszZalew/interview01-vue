@@ -48,9 +48,16 @@ export default {
         handleClick(val) {
             this.activeItem = val[0].stop
             this.activeItemIndex = val[0].order
-            this.key = val[0].line
             let sol = sortObjectsByTime(val)
             this.$store.dispatch('sortByTime', sol);
+        },
+        sortObjectsByTime(objects) {
+            const compareByTime = (a, b) => {
+                const timeA = parseFloat(a.time.replace(':', '.'));
+                const timeB = parseFloat(b.time.replace(':', '.'));
+                return timeA - timeB;
+            };
+            return objects.slice().sort(compareByTime);
         }
     }
 }
@@ -71,6 +78,6 @@ export default {
 }
 
 .gray-border {
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid var(--bs-main-alt-light);
 }
 </style>

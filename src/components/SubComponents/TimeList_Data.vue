@@ -33,6 +33,6 @@ export default {
 
 <style lang="scss" scoped>
 .gray-border {
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid var(--bs-main-alt-light);
 }
 </style>

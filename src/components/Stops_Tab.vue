@@ -2,7 +2,7 @@
     <div class="container custom-one pt-1 mt-3 bg-white rounded-1 px-0">
         <SearchBarComp :searchDataProp="searchData" @updateFromSearch="updateSearchTerm" />
         <ListDescComp :propSwitch="true" descVal="Bus Stops" />
-        <ListComp :valueList="getStopsDataComp" />
+        <ListComp :customHeight="true" :valueList="getStopsDataComp" />
     </div>
 </template>
 
@@ -42,6 +42,6 @@ export default {
 }
 
 .gray-border {
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid var(--bs-main-alt-light);
 }
 </style>
