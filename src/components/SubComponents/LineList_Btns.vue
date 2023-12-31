@@ -4,7 +4,7 @@
             Select Bus Line
         </p>
         <div class="d-flex flex-wrap gap-2  pb-4 px-2">
-            <button type="button" class="btn btn-primary custom-width-btn" v-for="iter in rawDataStore" :key="iter"
+            <button type="button" class="btn btn-primary custom-width-btn" v-for="iter in lineList" :key="iter"
                 @click="handleClick(iter)">{{
                     iter
                 }}</button>
@@ -13,19 +13,16 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
 export default {
-
     computed: {
-        rawDataStore() {
-            return Object.keys(this.convertingDataToObj)
+        ...mapGetters({ 'linesData': 'getLinesData' }),
+        lineList() {
+            return Object.keys(this.linesData)
         },
         convertingDataToObj() {
             return this.$store.getters['getLinesData']
         },
-        convertingSortByOrder() {
-            console.log(this.$store.getters['getByOrderData'])
-            return this.$store.getters['getByOrderData']
-        }
     },
     methods: {
         handleClick(val) {
@@ -36,10 +33,10 @@ export default {
     },
 
     async mounted() {
-        await this.$store.dispatch('fetchRawData');
+        await this.$store.dispatch('FETCH_RAW_DATA');
         await this.$store.dispatch('convertToObjLines')
     },
-};
+}
 </script>
 
 <style lang="scss" scoped>

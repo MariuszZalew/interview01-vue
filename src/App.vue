@@ -1,14 +1,14 @@
 <template>
     <div>
-        <DesktopMainView />
+        <MainView_Resp />
     </div>
 </template>
 
 <script>
-import DesktopMainView from './views/DesktopMainView.vue'
+import MainView_Resp from './views/MainView_Resp.vue'
 export default {
     components: {
-        DesktopMainView
+        MainView_Resp
     }
 }
 </script>
